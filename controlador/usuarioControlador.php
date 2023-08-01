@@ -44,6 +44,4 @@ class ctrUsuario{
             echo json_encode("Usuario o contraseña incorrectos");
         }
     }
-
-
 }
