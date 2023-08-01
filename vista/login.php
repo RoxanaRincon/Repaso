@@ -29,7 +29,7 @@
                 <input id="password" type="password" required="required">
             </div>
             <div class="buttons">
-                <input type="submit" value="INGRESAR">
+                <input id="ingresar" type="submit" value="INGRESAR">
                 <input id="registro" type="button" value="REGISTRAR">
             </div>
         </form>
@@ -45,14 +45,14 @@
             </div>
             <div class="inputBox">
                 <span>Email:</span>
-                <input id="email" type="email" required="required">
+                <input id="emailRegistro" type="email" required="required">
             </div>
             <div class="inputBox">
                 <span>Contraseña:</span>
-                <input id="password" type="password" required="required">
+                <input id="passwordRegistro" type="password" required="required">
             </div>
             <div class="buttons">
-                <input type="button" value="REGISTRARME">
+                <input id="registrar" type="button" value="REGISTRARME">
             </div>
         </form>
     </div>

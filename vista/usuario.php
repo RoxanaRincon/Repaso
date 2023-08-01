@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Evaluacion</title>
+    <title>Administrador</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,6 +18,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/style.css">
 
     <link rel='stylesheet' type='text/css' media='screen' href=''>
 </head>
@@ -25,9 +26,9 @@
 
 <!------------------------------- parte superior al ingresar sesion ------------------------------------->
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Empresa Carga</a>
+            <a class="navbar-brand" href="#">ADMINISTRADOR</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,13 +36,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="FormularioSolicitud.php">Solicitud de Servicio</a>
+                        <a class="nav-link" href="FormularioSolicitud.php">Informacion</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="listadoServicios.php">Servicios</a>
+                        <a class="nav-link" href="listadoServicios.php">Clientes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="usuario.php">Gestion de usuarios</a>
+                        <a class="nav-link" href="usuario.php">Inventario</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
@@ -54,100 +55,6 @@
     </nav>
 
     <div class="container mt-5">
-
-    <!------------------------------- Registro de Usuario ------------------------------------->
-    <div class="row">
-        <div class="mb-3 mt-3">
-            <button id="btnUsuario" type="button" class="btn btn-primary">Registrar Usuario</button>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-4" id="contenedorFormularios" style="display: none;">
-            <div class="container">
-                <form method="post" class="needs-validation">
-                    <div class="mb-3 mt-3">
-                        <label for="uname" class="form-label">Correo Electrónico:</label>
-                        <input type="text" class="form-control" id="txt_correo" placeholder="Ingrese el correo electrónico" name="guardarCorreo" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="pwd" class="form-label">Contraseña:</label>
-                        <input type="password" class="form-control" id="txt_password" placeholder="Ingrese la contraseña" name="guardarPassword" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="tipoUsuario" class="form-label">Tipo de Usuario:</label>
-                        <select class="form-control" id="txt_tipoUsuario" name="guardarTipoUsuario" required>
-                            <option value="Cliente">Cliente</option>
-                            <option value="Gerente">Gerente</option>
-                        </select>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
-                    </div>
-
-                    <button type="button" id="btnGuardarUsuario" class="btn btn-primary">Enviar</button>
-                </form>
-            </div>
-        </div>
-
-<!-------------------------------------- Editar Usuario ------------------------------------->
-        <div class="col-sm-4" id="contenedorEditarUsuario" style="display: none;">
-            <div class="container">
-                <form method="post" class="needs-validation">
-                    <div class="mb-3">
-                        <label for="pwd" class="form-label">Ingrese el Correo </label>
-                        <input type="text" class="form-control" id="txt_EditCorreo" placeholder="Ingrese su Correo" name="txt_EditCorreo" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="pwd" class="form-label">Contraseña:</label>
-                        <input type="password" class="form-control" id="txt_EditPassword" placeholder="Ingrese la nueva contraseña" name="txt_EditPassword" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="uname" class="form-label">Tipo de Usuario:</label>
-                        <select class="form-select" id="sel_tipoUsuario" name="sel_tipoUsuario" required>
-                            <option value="" selected disabled>Seleccione una opción</option>
-                            <option value="Cliente">Cliente</option>
-                            <option value="Gerente">Gerente</option>
-                        </select>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
-                    </div>
-
-                    <button type="button" id="btnEditarUsuario" Producto="" class="btn btn-primary">Editar Usuario</button>
-                    <button type="button" id="btnCancelar" Producto="" class="btn btn-success">Cancelar</button>
-                </form>
-            </div>
-        </div>
-
-            <div class="col-sm-12" id="contenedorTablaUsuario">
-                <table id="tablaUsuario" class="table">
-                    <thead class="table-primary">
-                        <tr>
-                        <th>id</th>
-                            <th>Correo Electrónico</th>
-                            <th>Tipo de Usuario</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="datosTablaUsuario">
-
-                    </tbody>
-                </table>
-            </div>
-
-        </div>
-
-    </div>
-
     <script src='js/usuario.js'></script>
 </body>
 
