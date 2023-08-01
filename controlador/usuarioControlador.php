@@ -47,3 +47,39 @@ class ctrUsuario{
 
 
 }
+
+// Verificar si se ha enviado el formulario de inicio de sesión
+if (isset($_POST["correo"], $_POST["password"])) {
+    $objUsuario = new CtrUsuario();
+    $objUsuario->ctrIniciarSesion($_POST["correo"], $_POST["password"]);
+}
+
+
+if(isset($_POST["listarDatosUsuario"]) && $_POST["listarDatosUsuario"] == "ok"){
+
+    $objUsuario = new ctrUsuario();
+    $objUsuario -> ctrListarUsuario();
+
+}
+
+if (isset($_POST["guardarCorreo"], $_POST["guardarPassword"], $_POST["guardarTipoUsuario"])) {
+    $objUsuario = new ctrUsuario();
+    $objUsuario->Correo = $_POST["guardarCorreo"];
+    $objUsuario->Password = $_POST["guardarPassword"]; 
+    $objUsuario->ctrGuardarUsuario();
+}
+
+if(isset($_POST["eliminarUsuario"])){
+    $objUsuario = new ctrUsuario();
+    $objUsuario -> idUsuario = $_POST["eliminarUsuario"];
+    $objUsuario -> ctrEliminarUsuario();
+}
+
+
+if (isset($_POST["updateCorreo"], $_POST["updatePassword"], $_POST["updateIdUsuario"], $_POST["updateTipoUsuario"])) {
+    $objPersonaje = new ctrUsuario();
+    $objPersonaje->Correo = $_POST["updateCorreo"];
+    $objPersonaje->idUsuario = $_POST["updateIdUsuario"];
+    $objPersonaje->Password = $_POST["updatePassword"];
+    $objPersonaje->ctrUpdateUsuario();
+}
