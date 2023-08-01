@@ -7,11 +7,9 @@
     <title>Evaluacion</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-    <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
 
-    <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -24,11 +22,12 @@
     <link rel='stylesheet' type='text/css' media='screen' href=''>
 </head>
 
-<body>
 
+<!------------------------------- parte superior al ingresar sesion ------------------------------------->
+<body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Empresa Fritos!</a>
+            <a class="navbar-brand" href="#">Empresa Carga</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -36,10 +35,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="FormularioSolicitud.php">Administrador</a>
+                        <a class="nav-link" href="FormularioSolicitud.php">Solicitud de Servicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="listadoServicios.php">Vendedor</a>
+                        <a class="nav-link" href="listadoServicios.php">Servicios</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="usuario.php">Gestion de usuarios</a>
@@ -56,52 +55,46 @@
 
     <div class="container mt-5">
 
-
-
+    <!------------------------------- Registro de Usuario ------------------------------------->
     <div class="row">
         <div class="mb-3 mt-3">
             <button id="btnUsuario" type="button" class="btn btn-primary">Registrar Usuario</button>
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-sm-4" id="contenedorFormularios" style="display: none;">
+            <div class="container">
+                <form method="post" class="needs-validation">
+                    <div class="mb-3 mt-3">
+                        <label for="uname" class="form-label">Correo Electrónico:</label>
+                        <input type="text" class="form-control" id="txt_correo" placeholder="Ingrese el correo electrónico" name="guardarCorreo" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pwd" class="form-label">Contraseña:</label>
+                        <input type="password" class="form-control" id="txt_password" placeholder="Ingrese la contraseña" name="guardarPassword" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tipoUsuario" class="form-label">Tipo de Usuario:</label>
+                        <select class="form-control" id="txt_tipoUsuario" name="guardarTipoUsuario" required>
+                            <option value="Cliente">Cliente</option>
+                            <option value="Gerente">Gerente</option>
+                        </select>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
 
-
-        <div class="row">
-            <div class="col-sm-4" id="contenedorFormularios" style="display: none;">
-                <div class="container">
-                    <form method="post" class="needs-validation">
-                        <div class="mb-3 mt-3">
-                            <label for="uname" class="form-label">Correo Electrónico:</label>
-                            <input type="text" class="form-control" id="txt_correo" placeholder="Ingrese el correo electrónico" name="guardarCorreo" required>
-                            <div class="valid-feedback">Valid.</div>
-                            <div class="invalid-feedback">Please fill out this field.</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="pwd" class="form-label">Contraseña:</label>
-                            <input type="password" class="form-control" id="txt_password" placeholder="Ingrese la contraseña" name="guardarPassword" required>
-                            <div class="valid-feedback">Valid.</div>
-                            <div class="invalid-feedback">Please fill out this field.</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="tipoUsuario" class="form-label">Tipo de Usuario:</label>
-                            <select class="form-control" id="txt_tipoUsuario" name="guardarTipoUsuario" required>
-                                <option value="Cliente">Cliente</option>
-                                <option value="Gerente">Gerente</option>
-                            </select>
-                            <div class="valid-feedback">Valid.</div>
-                            <div class="invalid-feedback">Please fill out this field.</div>
-                        </div>
-
-                        <button type="button" id="btnGuardarUsuario" class="btn btn-primary">Enviar</button>
-                    </form>
-                </div>
+                    <button type="button" id="btnGuardarUsuario" class="btn btn-primary">Enviar</button>
+                </form>
             </div>
+        </div>
 
-
-
-
-
-            <div class="col-sm-4" id="contenedorEditarUsuario" style="display: none;">
+<!-------------------------------------- Editar Usuario ------------------------------------->
+        <div class="col-sm-4" id="contenedorEditarUsuario" style="display: none;">
             <div class="container">
                 <form method="post" class="needs-validation">
                     <div class="mb-3">
@@ -112,23 +105,22 @@
                     </div>
 
                     <div class="mb-3">
-                    <label for="pwd" class="form-label">Contraseña:</label>
-                    <input type="password" class="form-control" id="txt_EditPassword" placeholder="Ingrese la nueva contraseña" name="txt_EditPassword" required>
-                    <div class="valid-feedback">Valid.</div>
-                    <div class="invalid-feedback">Please fill out this field.</div>
-                </div>
+                        <label for="pwd" class="form-label">Contraseña:</label>
+                        <input type="password" class="form-control" id="txt_EditPassword" placeholder="Ingrese la nueva contraseña" name="txt_EditPassword" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
 
-
-                 <div class="mb-3">
-                    <label for="uname" class="form-label">Tipo de Usuario:</label>
-                    <select class="form-select" id="sel_tipoUsuario" name="sel_tipoUsuario" required>
-                        <option value="" selected disabled>Seleccione una opción</option>
-                        <option value="Cliente">Cliente</option>
-                        <option value="Gerente">Gerente</option>
-                    </select>
-                    <div class="valid-feedback">Valid.</div>
-                    <div class="invalid-feedback">Please fill out this field.</div>
-                </div>
+                    <div class="mb-3">
+                        <label for="uname" class="form-label">Tipo de Usuario:</label>
+                        <select class="form-select" id="sel_tipoUsuario" name="sel_tipoUsuario" required>
+                            <option value="" selected disabled>Seleccione una opción</option>
+                            <option value="Cliente">Cliente</option>
+                            <option value="Gerente">Gerente</option>
+                        </select>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
 
                     <button type="button" id="btnEditarUsuario" Producto="" class="btn btn-primary">Editar Usuario</button>
                     <button type="button" id="btnCancelar" Producto="" class="btn btn-success">Cancelar</button>
